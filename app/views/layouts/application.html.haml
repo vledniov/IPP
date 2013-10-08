@@ -9,6 +9,14 @@
   = csrf_meta_tag
 
 %body
-  = render 'application/flash_messages'
+  %li
+    = link_to t(".english"), locale: 'en'
+  %li
+    = link_to t(".romanian"), locale: 'ro'
+  %li
+    = link_to t(".russian"), locale: 'ru'
   = yield
 
+  = I18n.l Time.now
+%br
+  = Dir.pwd
