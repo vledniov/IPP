@@ -15,3 +15,12 @@
 %div.container
   Do it with a caching proxy
   = button_to "CACHE SHIT!", { action: "generate_caching_rates" }, { class: "btn btn-primary" }
+  %span
+    Time elapsed:
+    = @time
+    seconds
+  %br
+  %span
+    Currently you have
+    = Rate.count
+    rates
