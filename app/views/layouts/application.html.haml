@@ -6,12 +6,9 @@
   %title IPP
 
   = stylesheet_link_tag "application"
+  = javascript_include_tag "application"
   = csrf_meta_tag
 
 %body
   / = render 'application/flash_messages'
   = yield
-
-  = I18n.l Time.now
-%br
-  = Dir.pwd
