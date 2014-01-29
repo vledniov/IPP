@@ -1,0 +1,51 @@
+%p Get ready for pressing some keys !!
+%p
+  = @player
+  should press now button "A"
+
+%div.pressable{"data-player" => @player}
+  %a{href: "/somewhere", class: "begin"} Click here to begin the game
+
+
+:javascript
+  var textArea = $('<br/><textarea style="padding-left:100px" id="game_area"/>');
+  var score = 0;
+  var player = $(".pressable").data("player")
+  if(player == "Player1")
+  {
+    var next_player = "Player2"
+  }
+  else
+  {
+    var next_player = "Scoreboard"
+  }
+
+  function end_game() {
+    $.ajax({
+      url: "/games/score",
+      type: "POST",
+      data: {
+        next_player: next_player,
+        score: score
+      }
+    })
+  }
+
+  $(document).ready(function(){
+    $("a.begin").click(function(event) {
+      console.log(player)
+      event.preventDefault();
+      $(this).hide();
+      $("div.pressable").append(textArea);
+      $("#game_area").focus();
+
+      setTimeout('end_game()', 10000);
+
+      $("#game_area").keyup(function(event){
+        if(event.keyCode == 65) {
+          score += 1;
+        }
+      });
+    });
+  })
+
