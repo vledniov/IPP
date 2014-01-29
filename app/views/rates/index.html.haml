@@ -1,0 +1,17 @@
+%div.container
+  Add 1000 rates into database
+  = button_to "GO!", { action: "generate_rates" }, { class: "btn btn-primary" }
+%div.container
+  Do it with a proxy
+  %div.container
+    Fire first 333
+    = button_to "ZAPUSKAI!", { action: "generate_rates_with_proxy", part: 1 }, { class: "btn btn-primary" }
+  %div.container
+    Fire next 333
+    = button_to "ZAPUSKAI!", { action: "generate_rates_with_proxy", part: 2 }, { class: "btn btn-primary" }
+  %div.container
+    Fire last 333
+    = button_to "ZAPUSKAI!", { action: "generate_rates_with_proxy", part: 3 }, { class: "btn btn-primary" }
+%div.container
+  Do it with a caching proxy
+  = button_to "CACHE SHIT!", { action: "generate_caching_rates" }, { class: "btn btn-primary" }
