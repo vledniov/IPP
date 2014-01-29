@@ -7,4 +7,11 @@ IPP::Application.routes.draw do
       end
     end
   end
+
+  resources :games, only: :index do
+    collection do
+      post :score
+      get  :results
+    end
+  end
 end
