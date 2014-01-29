@@ -9,6 +9,8 @@ gem 'turbolinks'
 gem 'haml-rails'
 gem 'pg'
 gem 'therubyracer'
+gem 'less-rails'
+gem 'twitter-bootstrap-rails'
 
 group :doc do
   gem 'sdoc', require: false
