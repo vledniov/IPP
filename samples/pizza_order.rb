@@ -72,7 +72,7 @@ class Pizza < Shoes
   def confirm
     stack do
       para "So, here is your result, #{$name}:"
-      para "The price you will have to pay is: #{$price}"
+      para "The price you will have to pay is: #{'%5.2f' % $price}"
       button("Back")    {visit "/order"}
       button("Finalize"){visit "/finalize"}
     end
